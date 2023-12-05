@@ -224,7 +224,8 @@ class Sheepl(object):
         Global Typing Speed
         """
         #speed = '60'
-        typing_speed = 'Opt("SendKeyDelay", {})\n'.format(speed)
+        typing_speed = 'Opt("TrayAutoPause", 0)\n'
+        typing_speed += 'Opt("SendKeyDelay", {})\n'.format(speed)
         print("[^] Global Typing Speed set to : {}".format(speed) + 'ms delay')
 
         return typing_speed
@@ -325,6 +326,8 @@ class Sheepl(object):
             total_time = int(self.total_time.split('m')[0]) * (1000 * 60)
         elif 'h' in self.total_time:
             total_time = int(self.total_time.split('h')[0]) * (1000 * 60 * 60)
+        elif 's' in self.total_time:
+            total_time = int(self.total_time.split('s')[0]) * (1000)
         else:
             # 1000 milliseconds to 1minute -> then to 1hour
             total_time = (1000 * 60 * 60)

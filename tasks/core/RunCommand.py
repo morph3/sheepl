@@ -282,5 +282,3 @@ class RunCommand(BaseCMD):
         """
 
         return textwrap.dedent(end_func)
-
-
